@@ -406,6 +406,8 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -std=gnu89
 		   -Wno-array-bounds \
 		   -Wno-maybe-uninitialized \
+		   -mcpu=cortex-a53 -mtune=cortex-a53 \
+		   -std=gnu89
 
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
