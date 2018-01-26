@@ -16,10 +16,12 @@
 #include <linux/math64.h>
 #include <linux/spinlock.h>
 #include <linux/slab.h>
+#include <linux/input.h>
 #include <linux/io.h>
 #include <linux/ftrace.h>
 #include <linux/mm.h>
 #include <linux/msm_adreno_devfreq.h>
+#include <linux/display_state.h>
 #include <asm/cacheflush.h>
 #include <soc/qcom/scm.h>
 #include "governor.h"
@@ -67,6 +69,10 @@ static void do_partner_start_event(struct work_struct *work);
 static void do_partner_stop_event(struct work_struct *work);
 static void do_partner_suspend_event(struct work_struct *work);
 static void do_partner_resume_event(struct work_struct *work);
+
+/* Display and suspend state booleans */ 
+static bool display_on;
+static bool suspended = false;
 
 static struct workqueue_struct *workqueue;
 
